@@ -13,6 +13,10 @@ Find maximum and minimum values
 Count even and odd numbers
 Count positive, negative, and zero values
 Reverse the array
+Search an element
+Find second largest element
+Left rotate array by 1
+Right rotate array by 1
 Menu-driven execution
 
 How to Run

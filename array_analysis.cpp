@@ -89,6 +89,51 @@ void reverse(int arr[], int n) {
     }
 }
 
+int linearSearch(int arr[], int n, int key){
+  for(int i=0; i<n; i++){
+    if(arr[i] == key)
+      return i;
+  }
+
+  return -1;
+}
+
+int secondLargest(int arr[], int n){
+  int largest = arr[0];
+  int secondLargest = arr[0];
+
+  for(int i=1; i<n; i++){
+    if(arr[i] > largest){
+      secondLargest = largest;
+      largest = arr[i];
+    }else if(arr[i] < largest && arr[i] > secondLargest){
+      secondLargest = arr[i];
+    }
+  }
+
+  return secondLargest;
+}
+
+void rightRotateByOne(int arr[], int n) {
+    int last = arr[n - 1];
+
+    for (int i = n - 1; i > 0; i--) {
+        arr[i] = arr[i - 1];
+    }
+
+    arr[0] = last;
+}
+
+void leftRotateByOne(int arr[], int n) {
+    int first = arr[0];
+
+    for (int i = 0; i < n - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+
+    arr[n - 1] = first;
+}
+
 int main() {
   int n;
   cout << "Enter array size: ";
@@ -112,7 +157,11 @@ int main() {
     cout << "6. Count even and odd numbers\n";
     cout << "7. Count positive, negative and zero\n";
     cout << "8. Reverse array\n";
-    cout << "9. Exit\n";
+    cout << "9. Search an Element(linear search)\n";
+    cout << "10. Find Second Largest element\n";
+    cout << "11. Array left rotated by 1\n";
+    cout << "12. Array right rotated by 1\n";
+    cout << "13. Exit\n";
     cout << "Enter choice: ";
     cin >> choice;
 
@@ -142,7 +191,31 @@ int main() {
       reverse(arr, n);
       cout << "Array reversed.\n";
       break;
-
+      case 9:{
+      int key;
+      cout << "Enter element to search: ";
+      cin >> key;
+      int index = linearSearch(arr, n, key);
+      if (index == -1)
+        cout << "Element not found\n";
+      else
+        cout << "Element found at index " << index << endl;
+      break;
+      }
+      case 10:
+      if (n < 2)
+        cout << "Array size must be at least 2\n";
+      else
+        cout << "Second largest: " << secondLargest(arr, n) << endl;
+      break;
+      case 11:
+      leftRotateByOne(arr, n);
+      cout << "Array left rotated by 1\n";
+      break;
+      case 12:
+      rightRotateByOne(arr, n);
+      cout << "Array right rotated by 1\n";
+      break;
     }
   }while(choice != 9);
 
