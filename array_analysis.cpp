@@ -9,6 +9,42 @@ void display(int arr[], int n){
   cout << endl;
 }
 
+int sum(int arr[], int n){
+  int sum = 0;
+  for(int i=0; i<n; i++){
+    sum = sum + arr[i];
+  }
+  return sum;
+}
+
+float average(int arr[], int n){
+  int sum = 0;
+  for(int i=0; i<n; i++){
+    sum = sum + arr[i];
+  }
+  return (float)sum/n;
+}
+
+int maximum(int * arr, int n){
+  int max = arr[0];
+  for(int i = 1; i < n; i++){
+    if(arr[i] > max){
+      max = arr[i];
+    }
+  }
+  return max;
+}
+
+int minimum(int arr[], int n) {
+    int min = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+    return min;
+}
+
 int main() {
   int n;
   cout << "Enter array size: ";
@@ -40,6 +76,19 @@ int main() {
       case 1:
       display(arr, n);
       break;
+      case 2:
+      cout << "Sum: " << sum(arr, n) << endl;
+      break;
+      case 3:
+      cout << "Average: " << average(arr, n) << endl;
+      break;
+      case 4:
+      cout << "Maximum: " << maximum(arr, n) << endl;
+      break;
+      case 5:
+      cout << "Minimum: " << minimum(arr, n) << endl;
+      break;
+
     }
   }while(choice != 9);
 
