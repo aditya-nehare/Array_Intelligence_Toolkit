@@ -44,6 +44,50 @@ int minimum(int arr[], int n) {
     }
     return min;
 }
+void countEvenOdd(int arr[], int n) {
+    int even = 0, odd = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (arr[i] % 2 == 0)
+            even++;
+        else
+            odd++;
+    }
+
+    cout << "Even count: " << even << endl;
+    cout << "Odd count: " << odd << endl;
+}
+
+void countPNZ(int arr[], int n) {
+    int pos = 0, neg = 0, zero = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (arr[i] > 0)
+            pos++;
+        else if (arr[i] < 0)
+            neg++;
+        else
+            zero++;
+    }
+
+    cout << "Positive: " << pos << endl;
+    cout << "Negative: " << neg << endl;
+    cout << "Zero: " << zero << endl;
+}
+
+void reverse(int arr[], int n) {
+    int start = 0;
+    int end = n - 1;
+
+    while (start < end) {
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+
+        start++;
+        end--;
+    }
+}
 
 int main() {
   int n;
@@ -87,6 +131,16 @@ int main() {
       break;
       case 5:
       cout << "Minimum: " << minimum(arr, n) << endl;
+      break;
+      case 6:
+      countEvenOdd(arr, n);
+      break;
+      case 7:
+      countPNZ(arr, n);
+      break;
+      case 8:
+      reverse(arr, n);
+      cout << "Array reversed.\n";
       break;
 
     }
