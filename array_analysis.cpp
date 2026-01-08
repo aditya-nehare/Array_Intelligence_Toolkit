@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 void display(int arr[], int n){
@@ -134,6 +135,45 @@ void leftRotateByOne(int arr[], int n) {
     arr[n - 1] = first;
 }
 
+void saveToFile(int arr[], int n) {
+    ofstream out("data.txt");   // ios::out by default
+
+    if (!out.is_open()) {
+        cout << "Error: Unable to open file for writing\n";
+        return;
+    }
+
+    for (int i = 0; i < n; i++) {
+        out << arr[i] << "\n";
+    }
+
+    out.close();
+    cout << "Array saved to file successfully\n";
+}
+
+int loadFromFile(int arr[], int &n) {
+    ifstream in("data.txt");
+
+    if (!in.is_open()) {
+        cout << "Error: File not found\n";
+        return 0;   // loading failed
+    }
+    int value;
+    int count = 0;
+    // Read until file ends
+    while (in >> value) {
+        arr[count++] = value;
+    }
+    in.close();
+    if (count == 0) {
+        cout << "Warning: File is empty\n";
+        return 0;
+    }
+    n = count;   // overwrite array size safely
+    cout << "Array loaded from file successfully\n";
+    return 1;    // loading successful
+}
+
 int main() {
   int n;
   cout << "Enter array size: ";
@@ -161,7 +201,9 @@ int main() {
     cout << "10. Find Second Largest element\n";
     cout << "11. Array left rotated by 1\n";
     cout << "12. Array right rotated by 1\n";
-    cout << "13. Exit\n";
+    cout << "13. Save Array to file\n";
+    cout << "14. Load Array from file\n";
+    cout << "15. Exit\n";
     cout << "Enter choice: ";
     cin >> choice;
 
@@ -216,8 +258,14 @@ int main() {
       rightRotateByOne(arr, n);
       cout << "Array right rotated by 1\n";
       break;
+      case 13:
+      saveToFile(arr, n);
+      break;
+      case 14:
+      loadFromFile(arr, n);
+      break;
     }
-  }while(choice != 9);
+  }while(choice != 14);
 
     return 0;
 }
