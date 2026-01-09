@@ -2,6 +2,16 @@
 #include <fstream>
 using namespace std;
 
+void showBanner() {
+    char title[] = "ARRAY ANALYSIS CLI - VERSION 3.1";
+    char line[]  = "================================";
+
+    cout << line << endl;
+    cout << title << endl;
+    cout << line << endl;
+}
+
+
 void display(int arr[], int n){
   cout << "Array elements: ";
   for(int i=0; i<n; i++){
@@ -175,6 +185,8 @@ int loadFromFile(int arr[], int &n) {
 }
 
 int main() {
+  showBanner();
+  
   int n;
   cout << "Enter array size: ";
   cin >> n;
