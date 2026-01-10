@@ -38,7 +38,8 @@ int main() {
         cout << "11. Find second largest element\n";
         cout << "12. Left rotate array by 1\n";
         cout << "13. Right rotate array by 1\n";
-        cout << "14. Insertion sort\n";
+        cout << "14. Bubble sort\n";
+        cout << "15. Insertion sort\n";
         cout << "Enter choice: ";
         cin >> choice;
 
@@ -50,27 +51,21 @@ int main() {
             case 2:
                 cout << "Sum: " << sum(arr, n) << endl;
                 break;
-
             case 3:
                 cout << "Average: " << average(arr, n) << endl;
                 break;
-
             case 4:
                 cout << "Maximum: " << maximum(arr, n) << endl;
                 break;
-
             case 5:
                 cout << "Minimum: " << minimum(arr, n) << endl;
                 break;
-
             case 6:
                 countEvenOdd(arr, n);
                 break;
-
             case 7:
                 countPNZ(arr, n);
                 break;
-
             case 8:
                 reverse(arr, n);
                 cout << "Array reversed\n";
@@ -99,12 +94,16 @@ int main() {
                 leftRotateByOne(arr, n);
                 cout << "Array left rotated by 1\n";
                 break;
-
             case 13:
                 rightRotateByOne(arr, n);
                 cout << "Array right rotated by 1\n";
                 break;
+
             case 14:
+                bubble_sort(arr ,n);
+                cout << "array sorted using bubble sort algorithm:  \n";
+                break;
+            case 15:
                 insertion_sort(arr ,n);
                 cout << "array sorted using Insertion sort algorithm:  \n";
                 break;

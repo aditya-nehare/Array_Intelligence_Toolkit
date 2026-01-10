@@ -63,12 +63,15 @@ void reverse(int arr[], int n) {
         arr[j] = t;
         i++; j--;
     }
+
+    display(arr, n);
 }
 
 int linearSearch(int arr[], int n, int key) {
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++){
         if (arr[i] == key)
             return i;
+    }
     return -1;
 }
 
@@ -92,6 +95,8 @@ void leftRotateByOne(int arr[], int n) {
     for (int i = 0; i < n - 1; i++)
         arr[i] = arr[i + 1];
     arr[n - 1] = first;
+
+    display(arr, n);
 }
 
 void rightRotateByOne(int arr[], int n) {
@@ -99,18 +104,35 @@ void rightRotateByOne(int arr[], int n) {
     for (int i = n - 1; i > 0; i--)
         arr[i] = arr[i - 1];
     arr[0] = last;
+
+    display(arr, n);
+}
+
+void bubble_sort(int *arr, int n){
+  for(int i=0; i<n-1; i++){
+    bool is_swap = false;
+
+    for(int j=0; j<n-i-1; j++){
+      if(arr[j] > arr[j+1]){
+        swap(arr[j], arr[j+1]);
+        is_swap = true;
+      }
+    }
+    if(!is_swap)
+      return;
+  }
+  display(arr, n);
 }
 
 void insertion_sort(int *arr, int n){
       for (int i = 1; i < n; i++) {
         int key = arr[i];
         int j = i - 1;
-
         while (j >= 0 && arr[j] > key) {
             arr[j + 1] = arr[j];
             j--;
         }
-
         arr[j + 1] = key;
     }
+    display(arr, n);
 }
