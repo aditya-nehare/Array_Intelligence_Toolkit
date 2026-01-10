@@ -15,4 +15,6 @@ int secondLargest(int arr[], int n);
 void leftRotateByOne(int arr[], int n);
 void rightRotateByOne(int arr[], int n);
 
+void insertion_sort(int arr[], int n);
+
 #endif

@@ -38,6 +38,7 @@ int main() {
         cout << "11. Find second largest element\n";
         cout << "12. Left rotate array by 1\n";
         cout << "13. Right rotate array by 1\n";
+        cout << "14. Insertion sort\n";
         cout << "Enter choice: ";
         cin >> choice;
 
@@ -103,7 +104,10 @@ int main() {
                 rightRotateByOne(arr, n);
                 cout << "Array right rotated by 1\n";
                 break;
-
+            case 14:
+                insertion_sort(arr ,n);
+                cout << "array sorted using Insertion sort algorithm:  \n";
+                break;
             case 9:
                 cout << "Exiting program\n";
                 break;
