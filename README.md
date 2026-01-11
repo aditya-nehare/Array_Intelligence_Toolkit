@@ -28,6 +28,8 @@ Contains all array-related operations such as sum, reverse, rotation, and search
 file_ops.h / file_ops.cpp:
 Contains file-related operations such as saving array data to a file.
 
+- Repository includes a separate recursive demo file for educational purposes only
+
 How to Compile and Run
 
 Compile:
