@@ -18,4 +18,7 @@ void rightRotateByOne(int arr[], int n);
 void bubble_sort(int arr[], int n);
 void insertion_sort(int arr[], int n);
 
+bool is_sorted(int arr[], int n);
+int binary_search(int arr[], int n, int key);
+
 #endif

@@ -40,6 +40,7 @@ int main() {
         cout << "13. Right rotate array by 1\n";
         cout << "14. Bubble sort\n";
         cout << "15. Insertion sort\n";
+        cout << "16. Binary search (on sorted array)\n";
         cout << "Enter choice: ";
         cin >> choice;
 
@@ -107,6 +108,22 @@ int main() {
                 insertion_sort(arr ,n);
                 cout << "array sorted using Insertion sort algorithm:  \n";
                 break;
+            case 16: {
+                int key;
+                cout << "Enter element to search: ";
+                cin >> key;
+
+                if (!is_sorted(arr, n)) {
+                  cout << "Array is not sorted. Binary search requires a sorted array.\n";
+                } else {
+                  int index = binary_search(arr, n, key);
+                if (index == -1)
+                  cout << "Element not found\n";
+                else
+                  cout << "Element found at index " << index << endl;
+                }
+                break;
+                }
             case 9:
                 cout << "Exiting program\n";
                 break;

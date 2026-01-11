@@ -136,3 +136,28 @@ void insertion_sort(int *arr, int n){
     }
     display(arr, n);
 }
+
+bool is_sorted(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        if (arr[i] > arr[i + 1])
+            return false;
+    }
+    return true;
+}
+
+int binary_search(int arr[], int n, int key) {
+    int low = 0;
+    int high = n - 1;
+
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+
+        if (arr[mid] == key)
+            return mid;
+        else if (arr[mid] < key)
+            low = mid + 1;
+        else
+            high = mid - 1;
+    }
+    return -1;
+}
