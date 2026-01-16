@@ -71,6 +71,9 @@ int main() {
                 reverse(arr, n);
                 cout << "Array reversed\n";
                 break;
+            case 9:
+                cout << "Exiting program\n";
+                break;
 
             case 10: {
                 int key;
@@ -83,14 +86,12 @@ int main() {
                     cout << "Element found at index " << index << endl;
                 break;
             }
-
             case 11:
                 if (n < 2)
                     cout << "Array size must be at least 2\n";
                 else
                     cout << "Second largest: " << secondLargest(arr, n) << endl;
                 break;
-
             case 12:
                 leftRotateByOne(arr, n);
                 cout << "Array left rotated by 1\n";
@@ -99,7 +100,6 @@ int main() {
                 rightRotateByOne(arr, n);
                 cout << "Array right rotated by 1\n";
                 break;
-
             case 14:
                 bubble_sort(arr ,n);
                 cout << "array sorted using bubble sort algorithm:  \n";
@@ -124,9 +124,6 @@ int main() {
                 }
                 break;
                 }
-            case 9:
-                cout << "Exiting program\n";
-                break;
 
             default:
                 cout << "Invalid choice\n";
