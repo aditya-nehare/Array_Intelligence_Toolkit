@@ -10,15 +10,19 @@ void countEvenOdd(int arr[], int n);
 void countPNZ(int arr[], int n);
 void reverse(int arr[], int n);
 
-int linearSearch(int arr[], int n, int key);
 int secondLargest(int arr[], int n);
 void leftRotateByOne(int arr[], int n);
 void rightRotateByOne(int arr[], int n);
+
+int linearSearch(int arr[], int n, int key);
+void sub_array(int arr[], int n);
+int binary_search(int arr[], int n, int key);
 
 void bubble_sort(int arr[], int n);
 void insertion_sort(int arr[], int n);
 
 bool is_sorted(int arr[], int n);
-int binary_search(int arr[], int n, int key);
+
+bool hasPairWithSum(int arr[], int n, int target);
 
 #endif

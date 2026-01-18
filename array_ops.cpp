@@ -1,4 +1,5 @@
 #include <iostream>
+#include <climits>
 #include "array_ops.h"
 
 using namespace std;
@@ -79,29 +80,23 @@ void reverse(int arr[], int n) {// Time Complexity: O(n), Space Complexity: O(1)
     // Swaps elements from both ends moving toward the center.
 }
 
-int linearSearch(int arr[], int n, int key) {// Time Complexity: O(n), Space Complexity: O(1)
-    for (int i = 0; i < n; i++){
-        if (arr[i] == key)
-            return i;
-    }
-    return -1;
-    // In the worst case, the element is not present and all n elements are checked.
-}
+int secondLargest(int arr[], int n) {
+    if (n < 2) return -1; // not enough elements
 
-int secondLargest(int arr[], int n) {// Time Complexity: O(n), Space Complexity: O(1)
-    int largest = arr[0];
-    int second = arr[0];
+    int largest = INT_MIN;
+    int second  = INT_MIN;
 
-    for (int i = 1; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         if (arr[i] > largest) {
             second = largest;
             largest = arr[i];
-        } else if (arr[i] < largest && arr[i] > second) {
+        }
+        else if (arr[i] < largest && arr[i] > second) {
             second = arr[i];
         }
     }
-    return second;
-    // Finds largest and second largest in a single pass without sorting.
+
+    return (second == INT_MIN) ? -1 : second;
 }
 
 void leftRotateByOne(int arr[], int n) {// Time Complexity: O(n), Space Complexity: O(1)
@@ -124,6 +119,15 @@ void rightRotateByOne(int arr[], int n) {// Time Complexity: O(n), Space Complex
     // All elements are shifted one position to the right
 }
 
+int linearSearch(int arr[], int n, int key) {// Time Complexity: O(n), Space Complexity: O(1)
+    for (int i = 0; i < n; i++){
+        if (arr[i] == key)
+            return i;
+    }
+    return -1;
+    // In the worst case, the element is not present and all n elements are checked.
+}
+
 int binary_search(int arr[], int n, int key) {// Time Complexity: O(log n), Space Complexity: O(1)
     int low = 0;
     int high = n - 1;
@@ -142,6 +146,18 @@ int binary_search(int arr[], int n, int key) {// Time Complexity: O(log n), Spac
     //The search space is halved in each iteration using indices.
 }
 
+void sub_array(int arr[], int n){
+  for(int start = 0; start < n; start++){
+    for(int end = start; end < n; end++){
+      // cout << "(" << start << ", " << end << ")";
+      for(int i=start; i<end; i++){
+        cout << arr[i];
+      }
+      cout << ", ";
+    }
+  }
+}
+
 bool is_sorted(int arr[], int n) {// Time Complexity: O(n), Space Complexity: O(1)
     for (int i = 0; i < n - 1; i++) {
         if (arr[i] > arr[i + 1])
@@ -152,6 +168,7 @@ bool is_sorted(int arr[], int n) {// Time Complexity: O(n), Space Complexity: O(
 }
 
 void bubble_sort(int *arr, int n){
+  // Large element come to end by swapping with adjacent
   for(int i=0; i<n-1; i++){
     bool is_swap = false;
 
@@ -179,4 +196,36 @@ void insertion_sort(int *arr, int n){
     }
     display(arr, n);
 }
+
+/*
+    Checks if there exists a pair with given sum using two-pointer technique
+    Assumes array is sorted in ascending order
+
+    Time Complexity: O(n)
+    Space Complexity: O(1)
+
+    Why:
+    - Two pointers traverse array from both ends
+    - Each pointer moves at most n times
+    - No extra data structures used
+*/
+bool hasPairWithSum(int arr[], int n, int target) {
+    int left = 0;
+    int right = n - 1;
+
+    while (left < right) {
+        int currentSum = arr[left] + arr[right];
+
+        if (currentSum == target){
+          cout << "( " << arr[left] <<", " << arr[right] << " ) ";
+            return true;
+        }
+        else if (currentSum < target)
+            left++;
+        else
+            right--;
+    }
+    return false;
+}
+
 

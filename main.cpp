@@ -41,6 +41,8 @@ int main() {
         cout << "14. Bubble sort\n";
         cout << "15. Insertion sort\n";
         cout << "16. Binary search (on sorted array)\n";
+        cout << "17. Print subarray\n";
+        cout << "18. Check pair with given sum (two-pointer)\n",
         cout << "Enter choice: ";
         cin >> choice;
 
@@ -124,12 +126,28 @@ int main() {
                 }
                 break;
                 }
+            case 17:
+                sub_array(arr, n);
+                break;
+            case 18:{
+                int target;
+                cout << "Enter target sum: ";
+                cin >> target;
 
+                if (!is_sorted(arr, n)) {
+                  cout << "Array is not sorted. Two-pointer method requires a sorted array.\n";
+                } else {
+                  if (hasPairWithSum(arr, n, target))
+                    cout << "Pair with given sum exists\n";
+                  else
+                    cout << "No such pair exists\n";
+                }
+                break;
+              }
             default:
                 cout << "Invalid choice\n";
         }
 
-    } while (choice != 9);
-
+    } while(choice != 9);
     return 0;
 }
